@@ -1,0 +1,24 @@
+class Bike implements Vehicle {
+    private String brand;
+    private int hours;
+    private final double hourlyRate = 10.0;
+
+    public Bike(String brand, int hours) {
+        this.brand = brand;
+        this.hours = hours;
+    }
+
+    @Override
+    public double calculateRentalCost() {
+        return hours * hourlyRate;
+    }
+
+    @Override
+    public void displayDetails() {
+        System.out.println("bike brand: " + brand);
+        System.out.println("hourly rental rate: $" + hourlyRate);
+        System.out.println("rental hours: " + hours);
+        System.out.println("rental cost: $" + calculateRentalCost());
+        System.out.println();
+    }
+}
