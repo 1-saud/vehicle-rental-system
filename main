@@ -1,0 +1,62 @@
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        List<Vehicle> rentedVehicles = new ArrayList<>();
+
+        while (true) {
+            System.out.println("1. rent a car");
+            System.out.println("2. rent a bike");
+            System.out.println("3. rent a truck");
+            System.out.println("4. view rented vehicles");
+            System.out.println("5. exit");
+            System.out.print("enter your choice: ");
+            int choice = scanner.nextInt();
+            scanner.nextLine();
+
+            switch (choice) {
+                case 1:
+                    System.out.print("enter car model: ");
+                    String carModel = scanner.nextLine();
+                    System.out.print("enter rental days: ");
+                    int carDays = scanner.nextInt();
+                    Vehicle car = new Car(carModel, carDays);
+                    rentedVehicles.add(car);
+                    System.out.println("rental details:");
+                    car.displayDetails();
+                    break;
+
+                case 2:
+                    System.out.print("enter bike brand: ");
+                    String bikeBrand = scanner.nextLine();
+                    System.out.print("enter rental hours: ");
+                    int bikeHours = scanner.nextInt();
+                    Vehicle bike = new Bike(bikeBrand, bikeHours);
+                    rentedVehicles.add(bike);
+                    System.out.println("rental details:");
+                    bike.displayDetails();
+                    break;
+
+                case 3:
+                    System.out.print("enter truck type: ");
+                    String truckType = scanner.nextLine();
+                    System.out.print("enter rental weeks: ");
+                    int truckWeeks = scanner.nextInt();
+                    Vehicle truck = new Truck(truckType, truckWeeks);
+                    rentedVehicles.add(truck);
+                    System.out.println("rental details:");
+                    truck.displayDetails();
+                    break;
+
+                case 4:
+                        System.out.println("Rented Vehicles:");
+                    for (int i = 0; i < rentedVehicles.size(); i++) {
+                        Vehicle v = rentedVehicles.get(i);
+                        v.displayDetails();
+                    }
+                    break;
+
+                case 5:
+                    System.out.println("Thank you for using the vehicle rental system!");
+                    return;
+            }
+        }
+}
