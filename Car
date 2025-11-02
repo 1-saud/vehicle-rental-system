@@ -1,0 +1,25 @@
+public class Car implements Vehicle {
+    private String model;
+    private int days;
+    private final double dailyRate = 50.0;
+
+    public Car(String model, int days) {
+        this.model = model;
+        this.days = days;
+    }
+
+    @Override
+    public double calculateRentalCost() {
+        return days * dailyRate;
+    }
+
+    @Override
+    public void displayDetails() {
+        System.out.println("car model: " + model);
+        System.out.println("daily rental rate:" + dailyRate);
+        System.out.println("rental days: " + days);
+        System.out.println("rental cost: " + calculateRentalCost());
+        System.out.println();
+    }
+
+}
